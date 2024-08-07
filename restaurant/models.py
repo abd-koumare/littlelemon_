@@ -3,10 +3,10 @@ from django.db import models
 class Booking(models.Model):
     name = models.CharField(max_length=255)
     no_of_guests = models.PositiveSmallIntegerField()
-    booking_date = models.DateTimeField(auto_now_add=True)
+    booking_date = models.DateTimeField()
 
     def __str__(self):
-        return self.name
+        return f'{self.name} : {str(self.booking_date)}'
 
 
 class MenuItem(models.Model):
@@ -14,6 +14,5 @@ class MenuItem(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
     inventory = models.PositiveIntegerField()
 
-
     def __str__(self):
-        return self.title
+        return f'{self.title} : {str(self.price)}'
